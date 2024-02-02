@@ -5,6 +5,10 @@ function fetchData(){
     fetch('https://api.coincap.io/v2/assets')
     .then(resp => resp.json())
     .then(dataSet => handleData(dataSet))
+    // Create title for webpage
+    let h1 = document.createElement('h1')
+    h1.textContent = 'Crypto Lite'
+    document.querySelector('body').appendChild(h1)
 }
 
 
@@ -18,13 +22,13 @@ function handleData(dataSet){
     defaultOption.textContent = "Choose Crypto"; // Set the default text
     defaultOption.disabled = true; // Make it disabled so it's not selectable
     defaultOption.selected = true; // Make it the initially selected option
-    // Append the default option to the select element
+    // Append the default option to the 'select' element
     sel.appendChild(defaultOption);
     // Create a dropdown option list for each crypto
     dataSet.data.forEach(element => {
         let opt = document.createElement('option')
         opt.textContent = element.id
         sel.appendChild(opt)
-
     })
+
 }
