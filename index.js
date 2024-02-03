@@ -5,6 +5,7 @@ function fetchData(){
     fetch('https://api.coincap.io/v2/assets')
     .then(resp => resp.json())
     .then(dataSet => handleData(dataSet))
+
     // Create title for webpage
     let h1 = document.createElement('h1')
     h1.textContent = 'Crypto Lite™️'
@@ -65,10 +66,9 @@ function handleData(dataSet){
         div.innerHTML = ''
 
         // if text field has a valid cypto symbol then display on webpage
-        if(textField.value){
             for(const key in crypto){
                 let UCaseTextField = textField.value.toUpperCase() // Change to uppercase to check against crypto object 
-                if(UCaseTextField === crypto[key].symbol){
+                if(textField.value && UCaseTextField === crypto[key].symbol){
                     // Create header with selected crypto name
                     let h2 = document.createElement('h2')
                     h2.textContent = crypto[key].symbol
@@ -86,13 +86,14 @@ function handleData(dataSet){
                     // Display website
                     createContainer('Website:',crypto[key].explorer)
                 }
+                // else{
+                //     // Create N/A header if find button is clicked and there is no input
+                //     let h2 = document.createElement('h2')
+                //     h2.textContent = 'N/A'
+                //     document.querySelector('#crypto-content').appendChild(h2)
+                // }
             }
-        }else{
-            // Create N/A header if find button is clicked and there is no input
-            let h2 = document.createElement('h2')
-            h2.textContent = 'N/A'
-            document.querySelector('#crypto-content').appendChild(h2)
-        }
+
     })
 
     // Create a container function for label and p elements to display attributes to page
