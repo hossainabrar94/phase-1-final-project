@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => fetchData())
 
 // Create title for webpage
-let h1 = document.createElement('h1')
+const h1 = document.createElement('h1')
 h1.textContent = 'Crypto Lite™️'
 document.querySelector('body').appendChild(h1)
 
