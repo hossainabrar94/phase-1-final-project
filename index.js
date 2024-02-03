@@ -11,7 +11,6 @@ function fetchData(){
     document.querySelector('body').appendChild(h1)
 }
 
-
 function handleData(dataSet){
     // Create select element for dropwdown. Create within div to use a flexbox
     let initContainer = document.createElement('div')
@@ -141,5 +140,4 @@ function handleData(dataSet){
         // Display website
         createContainer('Website:',crypto[e.target.value].explorer)
     })
-
 }
