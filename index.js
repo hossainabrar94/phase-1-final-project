@@ -103,6 +103,7 @@ function handleData(dataSet){
         container.style.alignItems = 'center'; // Align items vertically in the center
         container.style.marginBottom = '10px'; // Add some space between this and the next container
         
+        // Create Label for attributes
         let label = document.createElement('label');
         label.textContent = labelText;
         label.style.fontWeight = 'bold'
