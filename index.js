@@ -67,10 +67,7 @@ function handleData(dataSet){
 
         // if text field has a valid cypto symbol then display on webpage
         if(textField.value){
-            //console.log(crypto)
-
             for(const key in crypto){
-                //console.log(crypto[key].symbol)
                 let UCaseTextField = textField.value.toUpperCase() // Change to uppercase to check against crypto object 
                 if(UCaseTextField === crypto[key].symbol){
                     // Create header with selected crypto name
