@@ -71,7 +71,7 @@ function handleData(dataSet){
         if(textField.value){
             let UCaseTextField = textField.value.toUpperCase() // Change to uppercase to check against crypto object 
             let foundSymbol = Object.entries(crypto).find(([key,value]) => value.symbol === UCaseTextField)
-            //console.log(foundSymbol[1].symbol)
+            
             if(foundSymbol){
                 if(foundSymbol[1].symbol === UCaseTextField){
                     matchFound = true
@@ -94,33 +94,6 @@ function handleData(dataSet){
                 }
             }
         }
-
-
-        // // if text field has a valid cypto symbol then display on webpage
-        // let matchFound = false
-
-        // for(const key in crypto){
-        //     let UCaseTextField = textField.value.toUpperCase() // Change to uppercase to check against crypto object 
-        //     if(textField.value && UCaseTextField === crypto[key].symbol){
-        //         matchFound = true
-        //         // Create header with selected crypto name
-        //         let h2 = document.createElement('h2')
-        //         h2.textContent = crypto[key].symbol
-        //         document.querySelector('#crypto-content').appendChild(h2)
-
-        //         // Display symbol
-        //         createContainer('Symbol:',crypto[key].symbol)
-
-        //         // Display Current Price of crypto
-        //         createContainer('Price USD:', crypto[key].priceUsd)
-
-        //         // Display daily percent change of crypto
-        //         createContainer('24hr Percent Change:',crypto[key].changePercent24Hr)
-
-        //         // Display website
-        //         createContainer('Website:',crypto[key].explorer)
-        //     }
-        // }
 
         // Display N/A if no match is found or no input is entered
         if(!matchFound || !textField.value){
