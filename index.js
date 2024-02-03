@@ -66,34 +66,37 @@ function handleData(dataSet){
         div.innerHTML = ''
 
         // if text field has a valid cypto symbol then display on webpage
-            for(const key in crypto){
-                let UCaseTextField = textField.value.toUpperCase() // Change to uppercase to check against crypto object 
-                if(textField.value && UCaseTextField === crypto[key].symbol){
-                    // Create header with selected crypto name
-                    let h2 = document.createElement('h2')
-                    h2.textContent = crypto[key].symbol
-                    document.querySelector('#crypto-content').appendChild(h2)
+        let matchFound = false
 
-                    // Display symbol
-                    createContainer('Symbol:',crypto[key].symbol)
+        for(const key in crypto){
+            let UCaseTextField = textField.value.toUpperCase() // Change to uppercase to check against crypto object 
+            if(textField.value && UCaseTextField === crypto[key].symbol){
+                matchFound = true
+                // Create header with selected crypto name
+                let h2 = document.createElement('h2')
+                h2.textContent = crypto[key].symbol
+                document.querySelector('#crypto-content').appendChild(h2)
 
-                    // Display Current Price of crypto
-                    createContainer('Price USD:', crypto[key].priceUsd)
+                // Display symbol
+                createContainer('Symbol:',crypto[key].symbol)
 
-                    // Display daily percent change of crypto
-                    createContainer('24hr Percent Change:',crypto[key].changePercent24Hr)
+                // Display Current Price of crypto
+                createContainer('Price USD:', crypto[key].priceUsd)
 
-                    // Display website
-                    createContainer('Website:',crypto[key].explorer)
-                }
-                // else{
-                //     // Create N/A header if find button is clicked and there is no input
-                //     let h2 = document.createElement('h2')
-                //     h2.textContent = 'N/A'
-                //     document.querySelector('#crypto-content').appendChild(h2)
-                // }
+                // Display daily percent change of crypto
+                createContainer('24hr Percent Change:',crypto[key].changePercent24Hr)
+
+                // Display website
+                createContainer('Website:',crypto[key].explorer)
             }
+        }
 
+        if(!matchFound || !textField.value){
+            // Create N/A header if find button is clicked and there is no input
+            let h2 = document.createElement('h2')
+            h2.textContent = 'N/A'
+            document.querySelector('#crypto-content').appendChild(h2)
+        }
     })
 
     // Create a container function for label and p elements to display attributes to page
