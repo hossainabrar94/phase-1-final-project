@@ -91,11 +91,6 @@ function handleData(dataSet){
         h2.textContent = crypto[e.target.value].id
         document.querySelector('#crypto-content').appendChild(h2)
 
-        // Create a div for tooltip mouseover event
-        let div = document.createElement('div')
-        div.id = 'tooltip'
-        document.querySelector('#crypto-content').appendChild(div)
-
         // Create a container function for label and p elements to display attributes to page
         function createContainer(labelText, labelValue){
             let container = document.createElement('div');
