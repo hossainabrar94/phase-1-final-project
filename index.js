@@ -10,6 +10,7 @@ function fetchData(){
     fetch('https://api.coincap.io/v2/assets')
     .then(resp => resp.json())
     .then(dataSet => handleData(dataSet))
+    .catch(error => console.error('Error fetching data: ', error))
 }
 
 function handleData(dataSet){
