@@ -91,9 +91,11 @@ function handleData(dataSet){
                     createContainer('Website:',crypto[key].explorer)
                 }
             }
-            // let h2 = document.createElement('h2')
-            // h2.textContent = 'N/A'
-            // document.querySelector('#crypto-content').appendChild(h2)
+
+        }else{
+            let h2 = document.createElement('h2')
+            h2.textContent = 'N/A'
+            document.querySelector('#crypto-content').appendChild(h2)
         }
     })
 
