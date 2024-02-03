@@ -71,13 +71,17 @@ function handleData(dataSet){
 
             for(const key in crypto){
                 //console.log(crypto[key].symbol)
-                if(textField.value === crypto[key].symbol ){
-
+                let UCaseTextField = textField.value.toUpperCase() // Change to uppercase to compare 
+                if(UCaseTextField === crypto[key].symbol){
+                    // Create header with selected crypto name
+                    let h2 = document.createElement('h2')
+                    h2.textContent = crypto[key].symbol
+                    document.querySelector('#crypto-content').appendChild(h2)
                 }
             }
-            let h2 = document.createElement('h2')
-            h2.textContent = 'N/A'
-            document.querySelector('#crypto-content').appendChild(h2)
+            // let h2 = document.createElement('h2')
+            // h2.textContent = 'N/A'
+            // document.querySelector('#crypto-content').appendChild(h2)
         }
     })
 
