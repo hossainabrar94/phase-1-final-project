@@ -70,9 +70,9 @@ function handleData(dataSet){
             //console.log(crypto)
 
             for(const key in crypto){
-                console.log(crypto[key].symbol)
+                //console.log(crypto[key].symbol)
                 if(textField.value === crypto[key].symbol ){
-                    
+
                 }
             }
         }
