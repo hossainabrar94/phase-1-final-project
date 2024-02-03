@@ -91,7 +91,8 @@ function handleData(dataSet){
             }
         }
 
-        if(!matchFound || textField.value){
+        // Display N/A if no match is found or no input is entered
+        if(!matchFound || !textField.value){
             // Create N/A header if find button is clicked and there is no input
             let h2 = document.createElement('h2')
             h2.textContent = 'N/A'
