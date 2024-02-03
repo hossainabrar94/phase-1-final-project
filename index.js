@@ -71,12 +71,24 @@ function handleData(dataSet){
 
             for(const key in crypto){
                 //console.log(crypto[key].symbol)
-                let UCaseTextField = textField.value.toUpperCase() // Change to uppercase to compare 
+                let UCaseTextField = textField.value.toUpperCase() // Change to uppercase to check against crypto object 
                 if(UCaseTextField === crypto[key].symbol){
                     // Create header with selected crypto name
                     let h2 = document.createElement('h2')
                     h2.textContent = crypto[key].symbol
                     document.querySelector('#crypto-content').appendChild(h2)
+
+                    // Display symbol
+                    createContainer('Symbol:',crypto[key].symbol)
+
+                    // Display Current Price of crypto
+                    createContainer('Price USD:', crypto[key].priceUsd)
+
+                    // Display daily percent change of crypto
+                    createContainer('24hr Percent Change:',crypto[key].changePercent24Hr)
+
+                    // Display website
+                    createContainer('Website:',crypto[key].explorer)
                 }
             }
             // let h2 = document.createElement('h2')
@@ -84,6 +96,26 @@ function handleData(dataSet){
             // document.querySelector('#crypto-content').appendChild(h2)
         }
     })
+
+    // Create a container function for label and p elements to display attributes to page
+    function createContainer(labelText, labelValue){
+        let container = document.createElement('div');
+        container.style.display = 'flex'; // Use flexbox for horizontal layout
+        container.style.alignItems = 'center'; // Align items vertically in the center
+        container.style.marginBottom = '10px'; // Add some space between this and the next container
+        
+        let label = document.createElement('label');
+        label.textContent = labelText;
+        label.style.fontWeight = 'bold'
+        label.style.marginRight = '10px'; // Space between the label and the value
+        container.appendChild(label)
+
+        let p = document.createElement('p')
+        p.textContent = labelValue
+        container.appendChild(p)
+
+        div.appendChild(container)
+    }
 
     // Add event listener to populate data on page once dropdown is selected
     sel.addEventListener('change', (e) => {
@@ -94,26 +126,6 @@ function handleData(dataSet){
         let h2 = document.createElement('h2')
         h2.textContent = crypto[e.target.value].id
         document.querySelector('#crypto-content').appendChild(h2)
-
-        // Create a container function for label and p elements to display attributes to page
-        function createContainer(labelText, labelValue){
-            let container = document.createElement('div');
-            container.style.display = 'flex'; // Use flexbox for horizontal layout
-            container.style.alignItems = 'center'; // Align items vertically in the center
-            container.style.marginBottom = '10px'; // Add some space between this and the next container
-
-            let label = document.createElement('label');
-            label.textContent = labelText;
-            label.style.fontWeight = 'bold'
-            label.style.marginRight = '10px'; // Space between the label and the value
-            container.appendChild(label)
-
-            let p = document.createElement('p')
-            p.textContent = labelValue
-            container.appendChild(p)
-
-            div.appendChild(container)
-        }
 
         // Display symbol
         createContainer('Symbol:',crypto[e.target.value].symbol)
