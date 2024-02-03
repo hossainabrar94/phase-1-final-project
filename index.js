@@ -1,15 +1,15 @@
 document.addEventListener('DOMContentLoaded', () => fetchData())
 
+// Create title for webpage
+let h1 = document.createElement('h1')
+h1.textContent = 'Crypto Lite™️'
+document.querySelector('body').appendChild(h1)
+
 // fetch data from API and convert to json
 function fetchData(){
     fetch('https://api.coincap.io/v2/assets')
     .then(resp => resp.json())
     .then(dataSet => handleData(dataSet))
-
-    // Create title for webpage
-    let h1 = document.createElement('h1')
-    h1.textContent = 'Crypto Lite™️'
-    document.querySelector('body').appendChild(h1)
 }
 
 function handleData(dataSet){
