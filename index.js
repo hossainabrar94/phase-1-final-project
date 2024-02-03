@@ -71,25 +71,27 @@ function handleData(dataSet){
         if(textField.value){
             let UCaseTextField = textField.value.toUpperCase() // Change to uppercase to check against crypto object 
             let foundSymbol = Object.entries(crypto).find(([key,value]) => value.symbol === UCaseTextField)
-            console.log(foundSymbol[1].symbol)
-            if(foundSymbol[1].symbol === UCaseTextField){
-                matchFound = true
-                // Create header with selected crypto name
-                let h2 = document.createElement('h2')
-                h2.textContent = foundSymbol[1].symbol
-                document.querySelector('#crypto-content').appendChild(h2)
-    
-                // Display symbol
-                createContainer('Symbol:',foundSymbol[1].symbol)
-    
-                // Display Current Price of crypto
-                createContainer('Price USD:', foundSymbol[1].priceUsd)
-    
-                // Display daily percent change of crypto
-                createContainer('24hr Percent Change:',foundSymbol[1].changePercent24Hr)
-    
-                // Display website
-                createContainer('Website:',foundSymbol[1].explorer)
+            //console.log(foundSymbol[1].symbol)
+            if(foundSymbol){
+                if(foundSymbol[1].symbol === UCaseTextField){
+                    matchFound = true
+                    // Create header with selected crypto name
+                    let h2 = document.createElement('h2')
+                    h2.textContent = foundSymbol[1].symbol
+                    document.querySelector('#crypto-content').appendChild(h2)
+        
+                    // Display symbol
+                    createContainer('Symbol:',foundSymbol[1].symbol)
+        
+                    // Display Current Price of crypto
+                    createContainer('Price USD:', foundSymbol[1].priceUsd)
+        
+                    // Display daily percent change of crypto
+                    createContainer('24hr Percent Change:',foundSymbol[1].changePercent24Hr)
+        
+                    // Display website
+                    createContainer('Website:',foundSymbol[1].explorer)
+                }
             }
         }
 
