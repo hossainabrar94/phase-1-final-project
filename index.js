@@ -115,6 +115,7 @@ function handleData(dataSet){
         p.textContent = labelValue
         container.appendChild(p)
 
+        // Append container to div element
         div.appendChild(container)
     }
 
