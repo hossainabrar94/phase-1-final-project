@@ -110,6 +110,7 @@ function handleData(dataSet){
         label.style.marginRight = '10px'; // Space between the label and the value
         container.appendChild(label)
 
+        // Create p element for attribute value
         let p = document.createElement('p')
         p.textContent = labelValue
         container.appendChild(p)
