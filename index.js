@@ -75,6 +75,9 @@ function handleData(dataSet){
 
                 }
             }
+            let h2 = document.createElement('h2')
+            h2.textContent = 'N/A'
+            document.querySelector('#crypto-content').appendChild(h2)
         }
     })
 
