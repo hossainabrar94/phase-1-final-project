@@ -88,8 +88,8 @@ function handleData(dataSet){
                     createContainer('Website:',crypto[key].explorer)
                 }
             }
-
         }else{
+            // Create N/A header if find button is clicked and there is no input
             let h2 = document.createElement('h2')
             h2.textContent = 'N/A'
             document.querySelector('#crypto-content').appendChild(h2)
